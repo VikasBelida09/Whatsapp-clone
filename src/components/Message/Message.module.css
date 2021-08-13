@@ -1,0 +1,24 @@
+.sender{
+    width:fit-content;
+    padding:13px;
+    border-radius: 8px;
+    margin:10px;
+    min-width:50px;   
+    padding-bottom:13px;
+    position:relative;
+    text-align: right; 
+    margin-left: auto;
+    background-color: #dcf8c6;
+}
+.reciever{
+    width:fit-content;
+    padding:13px;
+    border-radius: 8px;
+    margin:10px;
+    min-width:60px;   
+    padding-bottom:13px;
+    position:relative;
+    text-align: right; 
+    background-color: whitesmoke;
+    text-align:left;
+}

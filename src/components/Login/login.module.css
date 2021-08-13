@@ -1,0 +1,16 @@
+.login__container{
+ display:flex;
+ flex-direction: column;
+}
+.logo{
+ height:200px; 
+ width:200px;
+ margin-bottom:50px;
+}
+.google__button{
+    height:40px;
+    color:white;
+    background-color:#006d5b;
+    outline-width: 0;
+    border: none;
+}
