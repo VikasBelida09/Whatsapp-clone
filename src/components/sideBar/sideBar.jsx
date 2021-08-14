@@ -42,7 +42,10 @@ const SideBar = () => {
   const chatAlreadyExists = (recipientEmail) => {
     console.log(recipientEmail, "recipient");
     return !!chatSnapShot?.docs?.find((chat) =>
-      chat.data()?.users?.find((user) => {console.log(user,'user');return user === recipientEmail})
+      chat.data()?.users?.find((user) => {
+        console.log(user, "user");
+        return user === recipientEmail;
+      })
     );
   };
   return (
@@ -74,11 +77,16 @@ const SideBar = () => {
         </div>
       </div>
       <div className={classes.sidebar__chats}>
-        {
-          chatSnapShot?.docs.map(chat=>{
-            return <SidebarChat key={chat.id} users={chat.data().users} name={''} id={chat.id}/>
-          })
-        }
+        {chatSnapShot?.docs.map((chat) => {
+          return (
+            <SidebarChat
+              key={chat.id}
+              users={chat.data().users}
+              name={""}
+              id={chat.id}
+            />
+          );
+        })}
       </div>
       <FormDialog
         Open={showDialog}
@@ -87,6 +95,9 @@ const SideBar = () => {
         handleClose={() => setShowDialog(false)}
       ></FormDialog>
       <ViewFriends
+        users={chatSnapShot?.docs.map(
+          (chat) => chat.data().users?.filter((a) => a != user.email)[0]
+        )}
         Open={showRequests}
         handleDialog={() => setShowRequests(true)}
         handleClose={() => setShowRequests(false)}

@@ -33,7 +33,8 @@ const Chat = ({ messages, chat }) => {
     if (messageSnapshot) {
       return messageSnapshot.docs.map((message) => (
         <Message
-          isActiveChat={recipient?.activeChat===user?.email}
+          isActiveChat={recipient?.activeChat === user?.email}
+          isOffline={recipient?.status === "offline"}
           key={message.id}
           user={message.data().user}
           message={{
@@ -56,7 +57,7 @@ const Chat = ({ messages, chat }) => {
       .then((querySnapshot) => {
         querySnapshot.forEach(function (doc) {
           doc.ref.update({
-            seen:true,
+            seen: true,
           });
         });
       });
